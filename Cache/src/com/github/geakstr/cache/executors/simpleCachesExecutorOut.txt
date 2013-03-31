@@ -1,0 +1,20 @@
+[LRU]  Put one : {one=first}
+[FIFO] Put one : {one=first}
+
+[LRU]  Put two : {one=first, two=second}
+[FIFO] Put two : {one=first, two=second}
+
+[LRU]  Put three : {one=first, two=second, three=third}
+[FIFO] Put three : {one=first, two=second, three=third}
+
+[LRU]  After get two : {one=first, three=third, two=second}
+[FIFO] After get two : {one=first, two=second, three=third}
+
+[LRU]  Put four : {three=third, two=second, four=fourth}
+[FIFO] Put four : {two=second, three=third, four=fourth}
+
+[LRU]  After get two : {three=third, four=fourth, two=second}
+[FIFO] After get two : {two=second, three=third, four=fourth}
+
+[LRU]  Put five : {four=fourth, two=second, five=fifth}
+[FIFO] Put five : {three=third, four=fourth, five=fifth}
