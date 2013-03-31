@@ -10,4 +10,8 @@ public class FIFOCache<K, V> extends Cache<K, V> {
 		super(capactity, loadFactor, false);
 	}
 
+	public FIFOCache(int capactity) {
+		super(capactity, false);
+	}
+
 }

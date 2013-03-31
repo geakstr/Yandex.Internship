@@ -16,6 +16,10 @@ public abstract class Cache<K, V> extends LinkedHashMap<K, V> implements
 		this.capacity = capacity;
 	}
 
+	public Cache(int capacity, boolean accessOrder) {
+		this(capacity, 1f, accessOrder);
+	}
+
 	public int getCapacity() {
 		return this.capacity;
 	}

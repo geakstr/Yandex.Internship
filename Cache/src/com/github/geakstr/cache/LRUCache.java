@@ -10,4 +10,8 @@ public class LRUCache<K, V> extends Cache<K, V> {
 		super(capactity, loadFactor, true);
 	}
 
+	public LRUCache(int capactity) {
+		super(capactity, true);
+	}
+
 }

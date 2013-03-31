@@ -6,8 +6,8 @@ import com.github.geakstr.cache.LRUCache;
 
 public class SimpleCachesExecutor {
 	public static void main(String[] args) {
-		ICache<String, String> lru = new LRUCache<String, String>(3, 1f);
-		ICache<String, String> fifo = new FIFOCache<String, String>(3, 1f);
+		ICache<String, String> lru = new LRUCache<String, String>(3);
+		ICache<String, String> fifo = new FIFOCache<String, String>(3);
 
 		lru.put("one", "first");
 		fifo.put("one", "first");
