@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import com.github.geakstr.cache.FIFOCache;
 import com.github.geakstr.cache.ICache;
-import com.github.geakstr.cache.LRUCache;
 
 public class FIFOCacheTest {
 
