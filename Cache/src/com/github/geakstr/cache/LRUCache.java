@@ -15,6 +15,10 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> implements ICache<K, V> 
 		this.capacity = initialCapacity;
 	}
 
+	public int getCapacity() {
+		return this.capacity;
+	}
+
 	@Override
 	protected boolean removeEldestEntry(Entry<K, V> entry) {
 		return this.capacity < size();
@@ -33,5 +37,10 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> implements ICache<K, V> 
 	@Override
 	public boolean containsKey(Object key) {
 		return super.containsKey(key);
+	}
+
+	@Override
+	public int size() {
+		return super.size();
 	}
 }

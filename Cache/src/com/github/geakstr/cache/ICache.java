@@ -16,4 +16,14 @@ public interface ICache<K, V> {
 	 * Проверяет наличие ключа key в кэше
 	 */
 	boolean containsKey(Object key);
+
+	/**
+	 * Получает размер кэша
+	 */
+	int size();
+
+	/**
+	 * Получает вместимость кэша
+	 */
+	int getCapacity();
 }
