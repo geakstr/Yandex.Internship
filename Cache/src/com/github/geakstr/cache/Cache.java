@@ -21,7 +21,9 @@ public abstract class Cache<K, V> extends LinkedHashMap<K, V> implements
 	}
 
 	@Override
-	protected abstract boolean removeEldestEntry(Entry<K, V> entry);
+	protected boolean removeEldestEntry(Entry<K, V> entry) {
+		return this.capacity < size();
+	}
 
 	@Override
 	public V get(Object key) {
