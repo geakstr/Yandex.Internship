@@ -1,10 +1,13 @@
-package com.github.geakstr.cache;
+package com.github.geakstr.cache.tests;
 
 import java.util.*;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.github.geakstr.cache.ICache;
+import com.github.geakstr.cache.LRUCache;
 
 public class LRUCacheTest {
 
