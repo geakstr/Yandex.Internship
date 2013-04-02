@@ -30,7 +30,7 @@ public class YandexParser extends Parser<YandexDoc> {
 
 			String greenLine = el.getElementsByClass("b-serp-url_inline_yes")
 					.text();
-			greenLine = greenLine.replaceAll("\\Ý", " Ý ");
+			greenLine = greenLine.replaceAll("\\›", " › ");
 
 			YandexDoc yandexDoc = new YandexDoc(title, link, text, greenLine);
 			results.add(yandexDoc);
