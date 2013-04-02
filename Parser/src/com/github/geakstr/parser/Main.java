@@ -1,5 +1,6 @@
 package com.github.geakstr.parser;
 
+import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.io.*;
@@ -16,8 +17,8 @@ public class Main {
 		String request = "";
 		for (String arg : args)
 			request += arg + " ";
-
-		System.out.println(request);
+		
+		request = URLEncoder.encode(request, "UTF-8");
 
 		IParser<YandexDoc> parser = new YandexParser(request);
 		List<YandexDoc> yandexResults = parser.getResults();
