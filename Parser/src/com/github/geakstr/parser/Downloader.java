@@ -2,7 +2,7 @@ package com.github.geakstr.parser;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.PrintStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -63,7 +63,7 @@ public class Downloader<T extends IDoc> {
 			return;
 		}
 
-		PrintWriter out = new PrintWriter(fileName);
+		PrintStream out = new PrintStream(fileName, "UTF-8");
 		out.println(getDoc);
 		out.close();
 	}
