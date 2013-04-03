@@ -1,6 +1,5 @@
 package com.github.geakstr.parser;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -14,8 +13,8 @@ public abstract class Parser<T> implements IParser<T> {
 
 	public Parser(String link) throws IOException {
 		doc = Jsoup.connect(link).get();
-		//File in = new File("dump.txt");
-		//doc = Jsoup.parse(in, "UTF-8");
+		// File in = new File("dump.txt");
+		// doc = Jsoup.parse(in, "UTF-8");
 		addAllResultsToList();
 	}
 
