@@ -1,11 +1,11 @@
 package com.github.geakstr.parser;
 
-import java.io.PrintWriter;
+import java.io.PrintStream;
 import java.util.List;
 
 public interface IResultsFormatter<T> {
 	/**
 	 * Печатает результаты в заданный поток
 	 */
-	void printResults(PrintWriter out, List<T> results);
+	void printResults(PrintStream out, List<T> results);
 }

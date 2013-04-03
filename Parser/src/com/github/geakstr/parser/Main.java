@@ -17,17 +17,30 @@ public class Main {
 		String request = "";
 		for (String arg : args)
 			request += arg + " ";
+
+		request = request.trim();
 		
+		if (request.length() == 0) {
+			System.out.println("Пустой запрос");
+			return;
+		}
+
 		request = URLEncoder.encode(request, "UTF-8");
 
 		IParser<YandexDoc> parser = new YandexParser(request);
 		List<YandexDoc> yandexResults = parser.getResults();
 
+		if (yandexResults == null) {
+			System.out
+					.println("Возможно, ничего не найдено. Но скорее всего вас забанили");
+			return;
+		}
+
 		Downloader<YandexDoc> downloader = new Downloader<YandexDoc>();
 		downloader.putDocumentsToFile(yandexResults, "./webpages/");
 
 		IResultsFormatter<YandexDoc> format = new YandexResultsFormatter();
-		PrintWriter outResults = new PrintWriter(System.out);
+		PrintStream outResults = new PrintStream(System.out, false, "UTF-8");
 		format.printResults(outResults, yandexResults);
 
 		outResults.flush();

@@ -1,0 +1,1899 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" /> 
+  <meta name="keywords" content="mp3, ??????, ???????, ???????, ??????, ???????????, ?????, ???????, ??????????, ??3" /> 
+  <meta name="description" content="Mp3 ?????? ??????????? ????? - (268 ?????) ??????? ? ???????" /> 
+  <title>Mp3 ?????? ??????????? ????? - (268 ?????) ??????? ? ???????</title> 
+  <link href="/main.css" rel="stylesheet" type="text/css" media="all" /> 
+  <link rel="stylesheet" href="/style.css?v=15" type="text/css" media="screen" /> 
+  <link rel="stylesheet" href="/registration.css?v=1" type="text/css" media="screen" /> 
+  <script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script> 
+  <script type="text/javascript" src="/js/jquery-ui.min.js"></script> 
+  <script type="text/javascript">
+function click_track() {
+    _ua = navigator.userAgent;
+    _is_opera = _ua.match(/(Opera Mini|Opera Mobi)/i);
+    if(!_is_opera) {
+        return false;
+    }
+    return true;
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+var tr_u_sm = 0;
+
+</script> 
+  <script type="text/javascript" src="/js/soundmanager/fullsoundmanager2.js?v=3"></script> 
+  <script type="text/javascript" src="/js/mp3-player-button.js?v=3"></script> 
+  <script type="text/javascript" src="/js/jquery.autocomplete1.js"></script> 
+ </head> 
+ <body> 
+  <script type="text/javascript" src="/js/login.js?v=7"></script> 
+  <div id="opaco" class="hidden"></div> 
+  <div id="popup"> 
+   <div id="message_login" style="width:400px; padding:20px;font-size:15px;color:red"></div> 
+   <div class="popup-close">
+    <a href="javascript:void(null)" onclick="$('#popup_bug').togglePopup(); return false;">&times;</a>
+   </div> 
+   <div style="padding:20px"> 
+    <table>
+     <tbody>
+      <tr>
+       <td align="left" style="height:80px;width:340px"> <b style="font-size:16px">
+         <div id="label_enter_loginza"></div></b><br /> 
+        <div id="reg_ulogin" style="margin-top:10px"> 
+         <div id="uLogin" x-ulogin-params="display=panel&amp;fields=first_name,last_name,photo&amp;providers=vkontakte,odnoklassniki,mailru,facebook,twitter,yandex,livejournal,openid,google&amp;hidden=&amp;redirect_uri=http%3A%2F%2Fwww.audiopoisk.com%2Fauth%2Fsoclogin%2F"></div> 
+        </div> </td>
+      </tr> 
+      <tr>
+       <td style="width:380px;vertical-align:middle;font-size:18px;font-weight:bold;background:url(/images/line_auth.gif) left center repeat-x">
+        <div style="background-color:white;color:#33b4ff;width:50px;margin-left:170px" id="or_loginza">
+         ???
+        </div></td>
+      </tr> 
+      <tr>
+       <td align="left"><b style="font-size:16px;padding-left:10px">
+         <div id="label_enter"></div></b><br /> 
+        <form method="POST" action="/login/"> 
+         <input type="hidden" value="/artist/vesna/" name="back" /> 
+         <table cellpadding="0px" cellspacing="0px" class="register_panel pop_reg"> 
+          <tbody>
+           <tr>
+            <td style="font-size:13px"><span id="auth_label_name"></span></td>
+           </tr> 
+           <tr>
+            <td><input type="text" id="signup" name="username" style="height:30px;width:340px" /></td>
+           </tr> 
+           <tr>
+            <td style="font-size:13px"><span id="auth_label_password"></span></td>
+           </tr> 
+           <tr>
+            <td><input type="password" id="signup" name="userpassword" style="height:30px;width:340px" /></td>
+           </tr> 
+           <tr>
+            <td align="left"> <input type="submit" id="auth_button" value="?????" name="submit" /> <span id="auth_label_links"></span> </td>
+           </tr> 
+          </tbody>
+         </table> 
+        </form> </td>
+      </tr>
+     </tbody>
+    </table> 
+   </div> 
+  </div>  
+  <div id="overall_head_top"></div> 
+  <div id="back"> 
+   <div id="container"> 
+    <!-- ^^^^^^^^^^^^^^ header code ^^^^^^^^^^^^^^ --> 
+    <script>
+function string_submit(id) {
+$('form[name=search_'+id+']').attr('method', "post");
+if($("select#what_"+id).val() == 1) {
+  $('form[name=search_'+id+']').attr('action', "/?q="+$('#'+id).val()); 
+}
+else {
+  $('form[name=search_'+id+']').attr('action', "/search/?what="+$("select#what_"+id).val()+"&q="+$('#'+id).val()); 
+}
+ return false;
+}
+  function getSearchString(value, currentValue, res) {
+                                            if(res == 1) {
+                                                 var reEscape = new RegExp('(\\' + ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'].join('|\\') + ')', 'g');                           
+                                                 var pattern = '(' + currentValue.replace(reEscape, '\\$1') + ')';
+                                            }                                           
+                                            re = /~(\d*)$/i	                                                 
+                                            found = value.match(re);
+                                            value = value.replace(found[0], "");
+                                            if(res == 1)
+                                                return value.replace(new RegExp(pattern, 'gi'), '<strong>$1<\/strong>')+"<span style='float:right;font-style:italic;font-size:11px'>"+found[1]+"</span>"
+                                              else return value;
+                                        }  
+</script> 
+    <div id="header"> 
+     <div id="pagenav"> 
+      <ul> 
+       <li class="current_page_item"><a href="/">Audiopoisk.com</a></li> 
+       <li class="page_item"><a href="/uploadfile/" title="????????? ??????">?????????</a></li> 
+      </ul> 
+     </div> 
+     <div id="searchform"> 
+      <form method="get" action="/search/" id="search_little_q" name="search_little_q" onsubmit="string_submit('little_q')"> 
+       <fieldset> 
+        <table style="margin-left:50px; padding:0px" cellpadding="0" cellspacing="0">
+         <tbody>
+          <tr>
+           <td style="width:700px;vertical-align:middle"> <label style="float:left">????? mp3</label> 
+            <div style="background:url(/images/search-input.gif);padding:2px;height:22px;position:relative;float:left;width:120px"> 
+             <select style="width:120px;height:22px;border: 0 none;" name="what" id="what_little_q"> <option value="1">?????</option> <option value="2">??????????</option> <option value="3">???????????</option> </select> 
+            </div> 
+            <div id="searchin">
+             <input value="" name="q" type="text" style="width:340px;" id="little_q" />
+            </div> </td>
+           <td style="padding-left:3px"> <input value="GO" id="searchbutton" type="submit" /> </td>
+          </tr>
+         </tbody>
+        </table> 
+       </fieldset> 
+      </form> 
+      <script>
+                                $('#little_q').autocomplete1({
+                                            serviceUrl: '/autocomplete/', // ???????? ??? ????????? ???????? ??????????????
+                                            minChars: 2, // ??????????? ????? ??????? ??? ???????????? ??????????????
+                                            delimiter: /(,|;)\s*/, // ??????????? ??? ?????????? ????????, ?????? ??? ?????????? ?????????
+                                            maxHeight: 400, // ???????????? ?????? ?????? ?????????, ? ????????
+                                            width: 340, // ?????? ??????
+                                            zIndex: 9999, // z-index ??????
+                                            deferRequestBy: 300, // ???????? ??????? (????), ?? ??????, ???? ?? ?? ????? ????? ??????? ????????, ???? ???????????? ????????. ? ?????? ?????? 300.
+                                            params: { }, // ?????????????? ?????????
+                                            onSelect: function(data, value, el){el.val(getSearchString(el.val(), "", 0));
+                                                                                    string_submit('little_q');
+                                                                                $('#search_little_q').get(0).submit();}, // Callback ???????, ????????????? ?? ????? ?????? ?? ???????????? ?????????,   
+                                                                                
+                                            fnFormatResult: function(value, data, currentValue) {        
+                                                   return getSearchString(value, currentValue, 1);
+                                            }
+                                        });
+        
+</script> 
+     </div> 
+     <div id="logo"> 
+      <h1>??????? mp3 ?????</h1> 
+     </div> 
+     <!--?????????? ??????????--> 
+     <!-- <div id="header" style="background: url('/images/ny.png') no-repeat bottom right;"> </div> --> 
+     <!--End ?????????? ??????????--> 
+     <!-- ^^^^^^^^^^^^^^ please modify ^^^^^^^^^^^^^^ --> 
+    </div> 
+    <div class="clear"></div> 
+    <!-- ^^^^^^^^^^^^^^ header code ^^^^^^^^^^^^^^ --> 
+    <div id="overall_head_bottom"></div> 
+    <div id="column"> 
+     <!-- ^^^^^^^^^^^^^^ post code ^^^^^^^^^^^^^^ --> 
+     <div class="post" id="post-8"> 
+      <div class="post-top"></div> 
+      <div class="entry"> 
+       <div id="sec_pl"></div> 
+       <script type="text/javascript">
+var isIE = document.all;
+ </script> 
+       <div id="turbo">
+        <div id="close_turbo" onclick="$('#turbo').hide();$.post('/hideTurbo/'); return false;">
+         &times;
+        </div>
+        <div class="clear"></div>
+       </div> 
+       <script>
+
+</script> 
+       <link rel="stylesheet" type="text/css" href="/js/paginator3000/paginator3000.css" /> 
+       <script type="text/javascript" src="/js/jquery.tooltip.js"></script> 
+       <script type="text/javascript">
+$(function() {
+ var ua = navigator.userAgent;   
+var is_iDevice = ua.match(/(ipad|iphone|ipod)/i);
+if(!is_iDevice) {
+$('#musictable a').tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	fade: 200
+});
+$('.hidden_title').tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	fade: 200
+});
+$('.td_artist').tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	fade: 200
+});
+}
+});
+</script> 
+       <h2> ????? ??????????? &laquo;?????&raquo; </h2> 
+       <div class="info"> 
+        <div class="cat" style="line-height:1.5">
+         ????? 268 ?????, ?????: 
+         <a href="/genre/disco/">?????</a>, 
+         <a href="/genre/alternative/">????????????</a>, 
+         <a href="/genre/rnb/">rnb</a>
+         <br /> ????? ?????? ?? ?????: 
+         <a href="/station/radio-da4a/">????? ????</a>, 
+         <a href="/station/miliceiskaa-volna/">??????????? ?????</a>
+         <br /> 
+        </div> 
+        <div class="clear"></div> 
+       </div> 
+       <div class="content"> 
+        <div style="position:relative"> 
+         <div class="text"> 
+          <div style="float:left">
+           <div id="content_artist_top"> 
+           </div> 
+          </div> 
+          <div style="clear:both"></div> 
+          <div style="float:left;position:relative"> 
+           <div id="div_order">
+            <span style="color:#666">??????????? ??</span> 
+            <a href="/" style="border-bottom:1px dotted grey" onclick="return false;" id="order_a">????????<img alt="" src="/images/shop_menu_active.gif" /></a> 
+            <div id="order_cont" style="position: relative;display:none;margin-left:95px;"> 
+             <div class="order-w1"> 
+              <div class="order"> 
+               <div>
+                <strong><a href="?order=abc" id="ord_al">????????</a></strong>
+               </div> 
+               <div>
+                <strong><a href="?order=popular" id="ord_pop">????????????</a></strong>
+               </div> 
+               <div>
+                <strong><a href="?order=date" id="ord_date">???? ??????????</a></strong>
+               </div> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+           <script type="text/javascript">        
+            $("#order_a").click(function(e) {
+                e.preventDefault();                
+                $("#order_cont").toggle();                
+            });
+
+            $("#order_cont").mouseup(function() {
+                return false
+            });
+            $(document).mouseup(function(e) {
+                if($(e.target).parent("#div_order").length==0) {                    
+                    $("#order_cont").hide();
+                }
+            });            
+
+        
+</script> 
+          </div> 
+          <div class="choose"> 
+           <div class="choose_type_select" style="margin:0px 1px">
+            ?????
+           </div> 
+           <div class="choose_type">
+            <a href="/albums/vesna/">???????</a>
+           </div> 
+          </div> 
+          <div style="clear:both;border-bottom:2px solid #AFDA54"></div> 
+          <link rel="stylesheet" type="text/css" href="/testplayer.css?v=9" /> 
+          <script type="text/javascript" src="/js/jquery.timers.js"></script> 
+          <script type="text/javascript" src="/js/jquery-impromptu.3.1.min.js"></script> 
+          <script>
+
+var is_vip = 0;
+
+</script> 
+          <div class="clear"></div> 
+          <table width="510px" id="musictable"> 
+           <tbody>
+            <tr class="zagolovok">
+             <td colspan="2">&nbsp;</td>
+             <td width="280px">??????????</td>
+             <td width="140px">??????</td>
+             <td>&nbsp;</td>
+            </tr> 
+            <tr id="track965884" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/no4naa-jena-965884.mp3" id="button965884" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('965884'); return false;" rel="nofollow" class="addtoplay" id="add965884" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/no4naa-jena/" class="a_title">?????? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/no4naa-jena-965884.mp3" class="downloads" id="download965884" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey965884">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar965884" class="non_progressbar"></div> 
+              <div id="volumebar965884" class="volumebar" style="display:none"></div> 
+              <div id="bitrate965884" class="bitrateplayer" style="display:none"></div> 
+              <div id="time965884" class="timeplayer" style="display:none">
+               03:16
+              </div> </td>
+            </tr> 
+            <tr id="track117171" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/pust-117171.mp3" id="button117171" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('117171'); return false;" rel="nofollow" class="addtoplay" id="add117171" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="vertical-align:middle;padding-left:10px"> 
+              <div class="white_grace"></div> 
+              <div class="hidden_title"> 
+               <a href="/track/vesna/mp3/pust/" class="a_title">?????</a> 
+              </div> </td> 
+             <td style="vertical-align:middle;font-size:12px;line-height:12px" class="td_artist"> 
+              <div class="white_grace_ar_artist"></div> 
+              <div class="second_column_track"> 
+               <a href="/album/sbornik/gora4aa-no4ka-2010/" class="ar_album">??????? ????? 2010</a>
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/pust-117171.mp3" class="downloads" id="download117171" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey117171">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar117171" class="non_progressbar"></div> 
+              <div id="volumebar117171" class="volumebar" style="display:none"></div> 
+              <div id="bitrate117171" class="bitrateplayer" style="display:none">
+               256 ??/c
+              </div> 
+              <div id="time117171" class="timeplayer" style="display:none">
+               3:17
+              </div> </td>
+            </tr> 
+            <tr id="track968402" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/gruppa-bol6e-ne-ho4u-968402.mp3" id="button968402" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('968402'); return false;" rel="nofollow" class="addtoplay" id="add968402" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/gruppa-bol6e-ne-ho4u/" class="a_title">?????? ?????? ?? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/gruppa-bol6e-ne-ho4u-968402.mp3" class="downloads" id="download968402" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey968402">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar968402" class="non_progressbar"></div> 
+              <div id="volumebar968402" class="volumebar" style="display:none"></div> 
+              <div id="bitrate968402" class="bitrateplayer" style="display:none"></div> 
+              <div id="time968402" class="timeplayer" style="display:none">
+               03:16
+              </div> </td>
+            </tr> 
+            <tr id="track394263" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/vivaldi-394263.mp3" id="button394263" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('394263'); return false;" rel="nofollow" class="addtoplay" id="add394263" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/vivaldi/" class="a_title">????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/vivaldi-394263.mp3" class="downloads" id="download394263" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey394263">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar394263" class="non_progressbar"></div> 
+              <div id="volumebar394263" class="volumebar" style="display:none"></div> 
+              <div id="bitrate394263" class="bitrateplayer" style="display:none">
+               320 ??/c
+              </div> 
+              <div id="time394263" class="timeplayer" style="display:none">
+               03:36
+              </div> </td>
+            </tr> 
+            <tr id="track2830666" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/samii-blizkii-4elovek-2830666.mp3" id="button2830666" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('2830666'); return false;" rel="nofollow" class="addtoplay" id="add2830666" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/samii-blizkii-4elovek/" class="a_title">????? ??????? ???????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/samii-blizkii-4elovek-2830666.mp3" class="downloads" id="download2830666" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey2830666">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar2830666" class="non_progressbar"></div> 
+              <div id="volumebar2830666" class="volumebar" style="display:none"></div> 
+              <div id="bitrate2830666" class="bitrateplayer" style="display:none">
+               320000 ??/c
+              </div> 
+              <div id="time2830666" class="timeplayer" style="display:none">
+               3:49
+              </div> </td>
+            </tr> 
+            <tr id="track769540" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/gruppa-4ujie-769540.mp3" id="button769540" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('769540'); return false;" rel="nofollow" class="addtoplay" id="add769540" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/gruppa-4ujie/" class="a_title">?????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/gruppa-4ujie-769540.mp3" class="downloads" id="download769540" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey769540">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar769540" class="non_progressbar"></div> 
+              <div id="volumebar769540" class="volumebar" style="display:none"></div> 
+              <div id="bitrate769540" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time769540" class="timeplayer" style="display:none">
+               03:39
+              </div> </td>
+            </tr> 
+            <tr id="track857318" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/pesna-iz-filma-likvidacia-857318.mp3" id="button857318" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('857318'); return false;" rel="nofollow" class="addtoplay" id="add857318" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/pesna-iz-filma-likvidacia/" class="a_title">????? ?? ?????? ??????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/pesna-iz-filma-likvidacia-857318.mp3" class="downloads" id="download857318" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey857318">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar857318" class="non_progressbar"></div> 
+              <div id="volumebar857318" class="volumebar" style="display:none"></div> 
+              <div id="bitrate857318" class="bitrateplayer" style="display:none"></div> 
+              <div id="time857318" class="timeplayer" style="display:none">
+               02:41
+              </div> </td>
+            </tr> 
+            <tr id="track394310" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/zoa-a6enko-i-gruppa-belaa-gvardia-394310.mp3" id="button394310" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('394310'); return false;" rel="nofollow" class="addtoplay" id="add394310" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/zoa-a6enko-i-gruppa-belaa-gvardia/" class="a_title">??? ?????? ? ?????? ????? ???????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/zoa-a6enko-i-gruppa-belaa-gvardia-394310.mp3" class="downloads" id="download394310" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey394310">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar394310" class="non_progressbar"></div> 
+              <div id="volumebar394310" class="volumebar" style="display:none"></div> 
+              <div id="bitrate394310" class="bitrateplayer" style="display:none"></div> 
+              <div id="time394310" class="timeplayer" style="display:none">
+               04:10
+              </div> </td>
+            </tr> 
+            <tr id="track780145" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/faktor-2-780145.mp3" id="button780145" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('780145'); return false;" rel="nofollow" class="addtoplay" id="add780145" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/faktor-2/" class="a_title">?????? 2</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/faktor-2-780145.mp3" class="downloads" id="download780145" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey780145">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar780145" class="non_progressbar"></div> 
+              <div id="volumebar780145" class="volumebar" style="display:none"></div> 
+              <div id="bitrate780145" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time780145" class="timeplayer" style="display:none">
+               03:16
+              </div> </td>
+            </tr> 
+            <tr id="track1057007" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/prikolnaa-pesenka-1057007.mp3" id="button1057007" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1057007'); return false;" rel="nofollow" class="addtoplay" id="add1057007" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/prikolnaa-pesenka/" class="a_title">?????????? ???????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/prikolnaa-pesenka-1057007.mp3" class="downloads" id="download1057007" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1057007">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1057007" class="non_progressbar"></div> 
+              <div id="volumebar1057007" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1057007" class="bitrateplayer" style="display:none">
+               320 ??/c
+              </div> 
+              <div id="time1057007" class="timeplayer" style="display:none">
+               03:11
+              </div> </td>
+            </tr> 
+            <tr id="track1456408" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/bol_6e-ne-ho4u-bit_-no4noi-jenoi-1456408.mp3" id="button1456408" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1456408'); return false;" rel="nofollow" class="addtoplay" id="add1456408" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/bol_6e-ne-ho4u-bit_-no4noi-jenoi/" class="a_title">?????? ?? ???? ???? ?????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/bol_6e-ne-ho4u-bit_-no4noi-jenoi-1456408.mp3" class="downloads" id="download1456408" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1456408">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1456408" class="non_progressbar"></div> 
+              <div id="volumebar1456408" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1456408" class="bitrateplayer" style="display:none">
+               256 ??/c
+              </div> 
+              <div id="time1456408" class="timeplayer" style="display:none">
+               1:59
+              </div> </td>
+            </tr> 
+            <tr id="track1326393" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/belie-krila-lubvi-1326393.mp3" id="button1326393" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1326393'); return false;" rel="nofollow" class="addtoplay" id="add1326393" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/belie-krila-lubvi/" class="a_title">????? ?????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/belie-krila-lubvi-1326393.mp3" class="downloads" id="download1326393" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1326393">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1326393" class="non_progressbar"></div> 
+              <div id="volumebar1326393" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1326393" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time1326393" class="timeplayer" style="display:none">
+               3:51
+              </div> </td>
+            </tr> 
+            <tr id="track968412" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/gruppa-balabama-968412.mp3" id="button968412" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('968412'); return false;" rel="nofollow" class="addtoplay" id="add968412" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/gruppa-balabama/" class="a_title">?????? ????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/gruppa-balabama-968412.mp3" class="downloads" id="download968412" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey968412">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar968412" class="non_progressbar"></div> 
+              <div id="volumebar968412" class="volumebar" style="display:none"></div> 
+              <div id="bitrate968412" class="bitrateplayer" style="display:none"></div> 
+              <div id="time968412" class="timeplayer" style="display:none">
+               04:26
+              </div> </td>
+            </tr> 
+            <tr id="track2661660" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/gruppa--bol_6e-ne-ho4u-bit_-no4noi-jenoi-2661660.mp3" id="button2661660" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('2661660'); return false;" rel="nofollow" class="addtoplay" id="add2661660" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/gruppa--bol_6e-ne-ho4u-bit_-no4noi-jenoi/" class="a_title">?????? , ?????? ?? ???? ???? ?????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/gruppa--bol_6e-ne-ho4u-bit_-no4noi-jenoi-2661660.mp3" class="downloads" id="download2661660" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey2661660">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar2661660" class="non_progressbar"></div> 
+              <div id="volumebar2661660" class="volumebar" style="display:none"></div> 
+              <div id="bitrate2661660" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time2661660" class="timeplayer" style="display:none">
+               3:58
+              </div> </td>
+            </tr> 
+            <tr id="track1306959" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/ritm-dorog-1306959.mp3" id="button1306959" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1306959'); return false;" rel="nofollow" class="addtoplay" id="add1306959" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/ritm-dorog/" class="a_title">???? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/ritm-dorog-1306959.mp3" class="downloads" id="download1306959" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1306959">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1306959" class="non_progressbar"></div> 
+              <div id="volumebar1306959" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1306959" class="bitrateplayer" style="display:none"></div> 
+              <div id="time1306959" class="timeplayer" style="display:none">
+               03:13
+              </div> </td>
+            </tr> 
+            <tr id="track1436826" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/bol_6e-ne-ho4u-bit_-no4noi-jenoia-i-tak-pla4u-dorogoi-cenoi-1436826.mp3" id="button1436826" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1436826'); return false;" rel="nofollow" class="addtoplay" id="add1436826" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px" title="?????? ?? ???? ???? ?????? ?????,? ? ??? ????? ??????? ?????..."> 
+               <a href="/track/vesna/mp3/bol_6e-ne-ho4u-bit_-no4noi-jenoia-i-tak-pla4u-dorogoi-cenoi/" class="a_title">?????? ?? ???? ???? ?????? ?????,? ? ??? ????? ??????? ?????...</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/bol_6e-ne-ho4u-bit_-no4noi-jenoia-i-tak-pla4u-dorogoi-cenoi-1436826.mp3" class="downloads" id="download1436826" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1436826">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1436826" class="non_progressbar"></div> 
+              <div id="volumebar1436826" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1436826" class="bitrateplayer" style="display:none">
+               256 ??/c
+              </div> 
+              <div id="time1436826" class="timeplayer" style="display:none">
+               1:59
+              </div> </td>
+            </tr> 
+            <tr id="track469077" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/german-anna-469077.mp3" id="button469077" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('469077'); return false;" rel="nofollow" class="addtoplay" id="add469077" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/german-anna/" class="a_title">?????? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/german-anna-469077.mp3" class="downloads" id="download469077" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey469077">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar469077" class="non_progressbar"></div> 
+              <div id="volumebar469077" class="volumebar" style="display:none"></div> 
+              <div id="bitrate469077" class="bitrateplayer" style="display:none">
+               256 ??/c
+              </div> 
+              <div id="time469077" class="timeplayer" style="display:none">
+               02:19
+              </div> </td>
+            </tr> 
+            <tr id="track1316823" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/gruppa-voda-1316823.mp3" id="button1316823" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1316823'); return false;" rel="nofollow" class="addtoplay" id="add1316823" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/gruppa-voda/" class="a_title">?????? ?.?.?.?</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/gruppa-voda-1316823.mp3" class="downloads" id="download1316823" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1316823">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1316823" class="non_progressbar"></div> 
+              <div id="volumebar1316823" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1316823" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time1316823" class="timeplayer" style="display:none">
+               03:13
+              </div> </td>
+            </tr> 
+            <tr id="track968409" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/v-coi-i-gruppa-kino-968409.mp3" id="button968409" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('968409'); return false;" rel="nofollow" class="addtoplay" id="add968409" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/v-coi-i-gruppa-kino/" class="a_title">?. ??? ? ?????? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/v-coi-i-gruppa-kino-968409.mp3" class="downloads" id="download968409" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey968409">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar968409" class="non_progressbar"></div> 
+              <div id="volumebar968409" class="volumebar" style="display:none"></div> 
+              <div id="bitrate968409" class="bitrateplayer" style="display:none"></div> 
+              <div id="time968409" class="timeplayer" style="display:none">
+               02:00
+              </div> </td>
+            </tr> 
+            <tr id="track1369484" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/okean-elzi-1369484.mp3" id="button1369484" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1369484'); return false;" rel="nofollow" class="addtoplay" id="add1369484" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/okean-elzi/" class="a_title">????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/okean-elzi-1369484.mp3" class="downloads" id="download1369484" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1369484">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1369484" class="non_progressbar"></div> 
+              <div id="volumebar1369484" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1369484" class="bitrateplayer" style="display:none">
+               192 ??/c
+              </div> 
+              <div id="time1369484" class="timeplayer" style="display:none">
+               04:11
+              </div> </td>
+            </tr> 
+            <tr id="track769552" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/roman-rikalov-i-gruppa-e6e-769552.mp3" id="button769552" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('769552'); return false;" rel="nofollow" class="addtoplay" id="add769552" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/roman-rikalov-i-gruppa-e6e/" class="a_title">????? ??????? ? ?????? ???</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/roman-rikalov-i-gruppa-e6e-769552.mp3" class="downloads" id="download769552" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey769552">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar769552" class="non_progressbar"></div> 
+              <div id="volumebar769552" class="volumebar" style="display:none"></div> 
+              <div id="bitrate769552" class="bitrateplayer" style="display:none">
+               192 ??/c
+              </div> 
+              <div id="time769552" class="timeplayer" style="display:none">
+               03:31
+              </div> </td>
+            </tr> 
+            <tr id="track715584" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/maksim-kust-715584.mp3" id="button715584" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('715584'); return false;" rel="nofollow" class="addtoplay" id="add715584" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/maksim-kust/" class="a_title">?????? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/maksim-kust-715584.mp3" class="downloads" id="download715584" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey715584">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar715584" class="non_progressbar"></div> 
+              <div id="volumebar715584" class="volumebar" style="display:none"></div> 
+              <div id="bitrate715584" class="bitrateplayer" style="display:none"></div> 
+              <div id="time715584" class="timeplayer" style="display:none">
+               03:40
+              </div> </td>
+            </tr> 
+            <tr id="track393547" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/svetlana-surganova-393547.mp3" id="button393547" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('393547'); return false;" rel="nofollow" class="addtoplay" id="add393547" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/svetlana-surganova/" class="a_title">???????? ?????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/svetlana-surganova-393547.mp3" class="downloads" id="download393547" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey393547">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar393547" class="non_progressbar"></div> 
+              <div id="volumebar393547" class="volumebar" style="display:none"></div> 
+              <div id="bitrate393547" class="bitrateplayer" style="display:none">
+               96 ??/c
+              </div> 
+              <div id="time393547" class="timeplayer" style="display:none">
+               04:16
+              </div> </td>
+            </tr> 
+            <tr id="track1659584" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/bol_6e-ne-ho4u-1659584.mp3" id="button1659584" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1659584'); return false;" rel="nofollow" class="addtoplay" id="add1659584" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/bol_6e-ne-ho4u/" class="a_title">?????? ?? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/bol_6e-ne-ho4u-1659584.mp3" class="downloads" id="download1659584" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1659584">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1659584" class="non_progressbar"></div> 
+              <div id="volumebar1659584" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1659584" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time1659584" class="timeplayer" style="display:none">
+               8:02
+              </div> </td>
+            </tr> 
+            <tr id="adds">
+             <td colspan="5"> 
+              <div id="content_artist_center"></div> </td>
+            </tr> 
+            <tr>
+             <td colspan="5"></td>
+            </tr> 
+            <tr id="track1776499" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/gruppa-cvetaeva-1776499.mp3" id="button1776499" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1776499'); return false;" rel="nofollow" class="addtoplay" id="add1776499" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/gruppa-cvetaeva/" class="a_title">?????? ????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/gruppa-cvetaeva-1776499.mp3" class="downloads" id="download1776499" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1776499">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1776499" class="non_progressbar"></div> 
+              <div id="volumebar1776499" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1776499" class="bitrateplayer" style="display:none">
+               224 ??/c
+              </div> 
+              <div id="time1776499" class="timeplayer" style="display:none">
+               02:22
+              </div> </td>
+            </tr> 
+            <tr id="track1285086" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/tanci-minus-1285086.mp3" id="button1285086" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1285086'); return false;" rel="nofollow" class="addtoplay" id="add1285086" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/tanci-minus/" class="a_title">????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/tanci-minus-1285086.mp3" class="downloads" id="download1285086" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1285086">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1285086" class="non_progressbar"></div> 
+              <div id="volumebar1285086" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1285086" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time1285086" class="timeplayer" style="display:none">
+               03:29
+              </div> </td>
+            </tr> 
+            <tr id="track1076403" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/djeims-last-1076403.mp3" id="button1076403" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1076403'); return false;" rel="nofollow" class="addtoplay" id="add1076403" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/djeims-last/" class="a_title">?????? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/djeims-last-1076403.mp3" class="downloads" id="download1076403" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1076403">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1076403" class="non_progressbar"></div> 
+              <div id="volumebar1076403" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1076403" class="bitrateplayer" style="display:none"></div> 
+              <div id="time1076403" class="timeplayer" style="display:none">
+               03:08
+              </div> </td>
+            </tr> 
+            <tr id="track910579" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/eduard-surovii-910579.mp3" id="button910579" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('910579'); return false;" rel="nofollow" class="addtoplay" id="add910579" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/eduard-surovii/" class="a_title">?????? ???????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/eduard-surovii-910579.mp3" class="downloads" id="download910579" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey910579">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar910579" class="non_progressbar"></div> 
+              <div id="volumebar910579" class="volumebar" style="display:none"></div> 
+              <div id="bitrate910579" class="bitrateplayer" style="display:none">
+               256 ??/c
+              </div> 
+              <div id="time910579" class="timeplayer" style="display:none">
+               00:21
+              </div> </td>
+            </tr> 
+            <tr id="track2772313" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/a-sama-2772313.mp3" id="button2772313" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('2772313'); return false;" rel="nofollow" class="addtoplay" id="add2772313" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/a-sama/" class="a_title">? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/a-sama-2772313.mp3" class="downloads" id="download2772313" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey2772313">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar2772313" class="non_progressbar"></div> 
+              <div id="volumebar2772313" class="volumebar" style="display:none"></div> 
+              <div id="bitrate2772313" class="bitrateplayer" style="display:none"></div> 
+              <div id="time2772313" class="timeplayer" style="display:none">
+               04:12
+              </div> </td>
+            </tr> 
+            <tr id="track1316831" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/gruppa-severnoe-sianie-gnnovgorod-1316831.mp3" id="button1316831" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1316831'); return false;" rel="nofollow" class="addtoplay" id="add1316831" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/gruppa-severnoe-sianie-gnnovgorod/" class="a_title">?????? ???????? ?????? ?.?.????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/gruppa-severnoe-sianie-gnnovgorod-1316831.mp3" class="downloads" id="download1316831" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1316831">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1316831" class="non_progressbar"></div> 
+              <div id="volumebar1316831" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1316831" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time1316831" class="timeplayer" style="display:none">
+               02:30
+              </div> </td>
+            </tr> 
+            <tr id="track1954528" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/viktor-popov-i-gr-tvoi-den_-1954528.mp3" id="button1954528" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1954528'); return false;" rel="nofollow" class="addtoplay" id="add1954528" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/viktor-popov-i-gr-tvoi-den_/" class="a_title">?????? ????? ? ?? ???? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/viktor-popov-i-gr-tvoi-den_-1954528.mp3" class="downloads" id="download1954528" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1954528">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1954528" class="non_progressbar"></div> 
+              <div id="volumebar1954528" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1954528" class="bitrateplayer" style="display:none">
+               256 ??/c
+              </div> 
+              <div id="time1954528" class="timeplayer" style="display:none">
+               05:00
+              </div> </td>
+            </tr> 
+            <tr id="track599914" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/timur-6aov-599914.mp3" id="button599914" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('599914'); return false;" rel="nofollow" class="addtoplay" id="add599914" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/timur-6aov/" class="a_title">????? ????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/timur-6aov-599914.mp3" class="downloads" id="download599914" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey599914">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar599914" class="non_progressbar"></div> 
+              <div id="volumebar599914" class="volumebar" style="display:none"></div> 
+              <div id="bitrate599914" class="bitrateplayer" style="display:none">
+               48 ??/c
+              </div> 
+              <div id="time599914" class="timeplayer" style="display:none">
+               03:41
+              </div> </td>
+            </tr> 
+            <tr id="track2777530" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/svobodnaa-lubov_-2777530.mp3" id="button2777530" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('2777530'); return false;" rel="nofollow" class="addtoplay" id="add2777530" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/svobodnaa-lubov_/" class="a_title">????????? ??????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/svobodnaa-lubov_-2777530.mp3" class="downloads" id="download2777530" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey2777530">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar2777530" class="non_progressbar"></div> 
+              <div id="volumebar2777530" class="volumebar" style="display:none"></div> 
+              <div id="bitrate2777530" class="bitrateplayer" style="display:none"></div> 
+              <div id="time2777530" class="timeplayer" style="display:none">
+               03:56
+              </div> </td>
+            </tr> 
+            <tr id="track1471125" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/ruskii-razmer-1471125.mp3" id="button1471125" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1471125'); return false;" rel="nofollow" class="addtoplay" id="add1471125" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/ruskii-razmer/" class="a_title">?????? ??????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/ruskii-razmer-1471125.mp3" class="downloads" id="download1471125" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1471125">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1471125" class="non_progressbar"></div> 
+              <div id="volumebar1471125" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1471125" class="bitrateplayer" style="display:none">
+               160 ??/c
+              </div> 
+              <div id="time1471125" class="timeplayer" style="display:none">
+               04:27
+              </div> </td>
+            </tr> 
+            <tr id="track968414" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/rok-gruppa-38-968414.mp3" id="button968414" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('968414'); return false;" rel="nofollow" class="addtoplay" id="add968414" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/rok-gruppa-38/" class="a_title">??? ?????? 38</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/rok-gruppa-38-968414.mp3" class="downloads" id="download968414" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey968414">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar968414" class="non_progressbar"></div> 
+              <div id="volumebar968414" class="volumebar" style="display:none"></div> 
+              <div id="bitrate968414" class="bitrateplayer" style="display:none">
+               192 ??/c
+              </div> 
+              <div id="time968414" class="timeplayer" style="display:none">
+               03:32
+              </div> </td>
+            </tr> 
+            <tr id="track593782" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/kaza4enko-vadim-593782.mp3" id="button593782" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('593782'); return false;" rel="nofollow" class="addtoplay" id="add593782" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/kaza4enko-vadim/" class="a_title">????????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/kaza4enko-vadim-593782.mp3" class="downloads" id="download593782" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey593782">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar593782" class="non_progressbar"></div> 
+              <div id="volumebar593782" class="volumebar" style="display:none"></div> 
+              <div id="bitrate593782" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time593782" class="timeplayer" style="display:none">
+               02:52
+              </div> </td>
+            </tr> 
+            <tr id="track620532" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/dj-leon-620532.mp3" id="button620532" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('620532'); return false;" rel="nofollow" class="addtoplay" id="add620532" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/dj-leon/" class="a_title">DJ Leon</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/dj-leon-620532.mp3" class="downloads" id="download620532" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey620532">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar620532" class="non_progressbar"></div> 
+              <div id="volumebar620532" class="volumebar" style="display:none"></div> 
+              <div id="bitrate620532" class="bitrateplayer" style="display:none"></div> 
+              <div id="time620532" class="timeplayer" style="display:none">
+               03:51
+              </div> </td>
+            </tr> 
+            <tr id="track2173473" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/ulduz-usmanova-2173473.mp3" id="button2173473" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('2173473'); return false;" rel="nofollow" class="addtoplay" id="add2173473" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/ulduz-usmanova/" class="a_title">????? ????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/ulduz-usmanova-2173473.mp3" class="downloads" id="download2173473" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey2173473">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar2173473" class="non_progressbar"></div> 
+              <div id="volumebar2173473" class="volumebar" style="display:none"></div> 
+              <div id="bitrate2173473" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time2173473" class="timeplayer" style="display:none">
+               04:04
+              </div> </td>
+            </tr> 
+            <tr id="track1612654" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/kri4evskii-garik-1612654.mp3" id="button1612654" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1612654'); return false;" rel="nofollow" class="addtoplay" id="add1612654" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/kri4evskii-garik/" class="a_title">?????????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/kri4evskii-garik-1612654.mp3" class="downloads" id="download1612654" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1612654">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1612654" class="non_progressbar"></div> 
+              <div id="volumebar1612654" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1612654" class="bitrateplayer" style="display:none">
+               192 ??/c
+              </div> 
+              <div id="time1612654" class="timeplayer" style="display:none">
+               04:43
+              </div> </td>
+            </tr> 
+            <tr id="track1316828" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/pozaev-urii-i-gruppa-kav6i-1316828.mp3" id="button1316828" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1316828'); return false;" rel="nofollow" class="addtoplay" id="add1316828" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/pozaev-urii-i-gruppa-kav6i/" class="a_title">?????? ???? ? ?????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/pozaev-urii-i-gruppa-kav6i-1316828.mp3" class="downloads" id="download1316828" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1316828">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1316828" class="non_progressbar"></div> 
+              <div id="volumebar1316828" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1316828" class="bitrateplayer" style="display:none">
+               320 ??/c
+              </div> 
+              <div id="time1316828" class="timeplayer" style="display:none">
+               03:37
+              </div> </td>
+            </tr> 
+            <tr id="track904344" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/kalina-krasnaa-904344.mp3" id="button904344" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('904344'); return false;" rel="nofollow" class="addtoplay" id="add904344" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/kalina-krasnaa/" class="a_title">?????? ???????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/kalina-krasnaa-904344.mp3" class="downloads" id="download904344" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey904344">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar904344" class="non_progressbar"></div> 
+              <div id="volumebar904344" class="volumebar" style="display:none"></div> 
+              <div id="bitrate904344" class="bitrateplayer" style="display:none">
+               320 ??/c
+              </div> 
+              <div id="time904344" class="timeplayer" style="display:none">
+               04:04
+              </div> </td>
+            </tr> 
+            <tr id="track393808" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/nasta--393808.mp3" id="button393808" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('393808'); return false;" rel="nofollow" class="addtoplay" id="add393808" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/nasta-/" class="a_title">????? </a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/nasta--393808.mp3" class="downloads" id="download393808" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey393808">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar393808" class="non_progressbar"></div> 
+              <div id="volumebar393808" class="volumebar" style="display:none"></div> 
+              <div id="bitrate393808" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time393808" class="timeplayer" style="display:none">
+               03:15
+              </div> </td>
+            </tr> 
+            <tr id="track394170" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/vopli-vodoplasova-394170.mp3" id="button394170" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('394170'); return false;" rel="nofollow" class="addtoplay" id="add394170" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/vopli-vodoplasova/" class="a_title">????? ???????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/vopli-vodoplasova-394170.mp3" class="downloads" id="download394170" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey394170">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar394170" class="non_progressbar"></div> 
+              <div id="volumebar394170" class="volumebar" style="display:none"></div> 
+              <div id="bitrate394170" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time394170" class="timeplayer" style="display:none">
+               05:06
+              </div> </td>
+            </tr> 
+            <tr id="track394309" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/surganova--orkestr-394309.mp3" id="button394309" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('394309'); return false;" rel="nofollow" class="addtoplay" id="add394309" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/surganova--orkestr/" class="a_title">????????? &amp; ???????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/surganova--orkestr-394309.mp3" class="downloads" id="download394309" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey394309">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar394309" class="non_progressbar"></div> 
+              <div id="volumebar394309" class="volumebar" style="display:none"></div> 
+              <div id="bitrate394309" class="bitrateplayer" style="display:none">
+               192 ??/c
+              </div> 
+              <div id="time394309" class="timeplayer" style="display:none">
+               04:14
+              </div> </td>
+            </tr> 
+            <tr id="track1314210" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/valerii-kuras-1314210.mp3" id="button1314210" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1314210'); return false;" rel="nofollow" class="addtoplay" id="add1314210" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/valerii-kuras/" class="a_title">??????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/valerii-kuras-1314210.mp3" class="downloads" id="download1314210" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1314210">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1314210" class="non_progressbar"></div> 
+              <div id="volumebar1314210" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1314210" class="bitrateplayer" style="display:none"></div> 
+              <div id="time1314210" class="timeplayer" style="display:none">
+               03:22
+              </div> </td>
+            </tr> 
+            <tr id="track508229" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/viktor-coi--maik-naumenko-508229.mp3" id="button508229" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('508229'); return false;" rel="nofollow" class="addtoplay" id="add508229" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/viktor-coi--maik-naumenko/" class="a_title">?????? ??? &amp; ???? ????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/viktor-coi--maik-naumenko-508229.mp3" class="downloads" id="download508229" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey508229">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar508229" class="non_progressbar"></div> 
+              <div id="volumebar508229" class="volumebar" style="display:none"></div> 
+              <div id="bitrate508229" class="bitrateplayer" style="display:none">
+               192 ??/c
+              </div> 
+              <div id="time508229" class="timeplayer" style="display:none">
+               02:21
+              </div> </td>
+            </tr> 
+            <tr id="track1841348" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/a-narisuu-mir-takimkakim-lublu-1841348.mp3" id="button1841348" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1841348'); return false;" rel="nofollow" class="addtoplay" id="add1841348" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/a-narisuu-mir-takimkakim-lublu/" class="a_title">? ??????? ??? ?????,????? ?????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/a-narisuu-mir-takimkakim-lublu-1841348.mp3" class="downloads" id="download1841348" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1841348">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1841348" class="non_progressbar"></div> 
+              <div id="volumebar1841348" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1841348" class="bitrateplayer" style="display:none">
+               256 ??/c
+              </div> 
+              <div id="time1841348" class="timeplayer" style="display:none">
+               03:02
+              </div> </td>
+            </tr> 
+            <tr id="track760057" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/sergei-trofimov-760057.mp3" id="button760057" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('760057'); return false;" rel="nofollow" class="addtoplay" id="add760057" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/sergei-trofimov/" class="a_title">?????? ????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/sergei-trofimov-760057.mp3" class="downloads" id="download760057" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey760057">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar760057" class="non_progressbar"></div> 
+              <div id="volumebar760057" class="volumebar" style="display:none"></div> 
+              <div id="bitrate760057" class="bitrateplayer" style="display:none">
+               128 ??/c
+              </div> 
+              <div id="time760057" class="timeplayer" style="display:none">
+               03:12
+              </div> </td>
+            </tr> 
+            <tr id="track2237595" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/vsegda-govori-vsegda-2237595.mp3" id="button2237595" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('2237595'); return false;" rel="nofollow" class="addtoplay" id="add2237595" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/vsegda-govori-vsegda/" class="a_title">?????? ?????? ??????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/vsegda-govori-vsegda-2237595.mp3" class="downloads" id="download2237595" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey2237595">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar2237595" class="non_progressbar"></div> 
+              <div id="volumebar2237595" class="volumebar" style="display:none"></div> 
+              <div id="bitrate2237595" class="bitrateplayer" style="display:none">
+               256 ??/c
+              </div> 
+              <div id="time2237595" class="timeplayer" style="display:none">
+               03:38
+              </div> </td>
+            </tr> 
+            <tr id="track1293126" class="play_line"> 
+             <td style="width:20px;"> <a class="sm2_button" href="/files/vesna/penie-ptic--6um-vodi--kolokol4iki-1293126.mp3" id="button1293126" rel="nofollow" title="??????" onclick="if(!click_track())return false;"></a> </td> 
+             <td><a href="#play" onclick="playlist('1293126'); return false;" rel="nofollow" class="addtoplay" id="add1293126" title="? ????????"></a> </td> 
+             <td class="title" valign="middle" style="width:420px" colspan="2"> 
+              <div class="white_grace" longstring="1"></div> 
+              <div class="hidden_title" style="width:412px"> 
+               <a href="/track/vesna/mp3/penie-ptic--6um-vodi--kolokol4iki/" class="a_title">????? ????, ??? ????, ????????????</a> 
+              </div> </td> 
+             <td align="right"><a href="/files/vesna/penie-ptic--6um-vodi--kolokol4iki-1293126.mp3" class="downloads" id="download1293126" rel="nofollow" title="???????" onclick="return false"></a> </td> 
+            </tr> 
+            <tr id="track_line_grey1293126">
+             <td colspan="5" style="height:12px"> 
+              <div id="bar1293126" class="non_progressbar"></div> 
+              <div id="volumebar1293126" class="volumebar" style="display:none"></div> 
+              <div id="bitrate1293126" class="bitrateplayer" style="display:none"></div> 
+              <div id="time1293126" class="timeplayer" style="display:none">
+               03:40
+              </div> </td>
+            </tr> 
+            <tr>
+             <td colspan="6"> 
+              <div id="paginator_example" class="paginator fullsize"> 
+               <table width="100%"> 
+                <tbody>
+                 <tr> 
+                  <td width="9.090909090909092%"><span> <strong>1</strong> </span></td> 
+                  <td width="9.090909090909092%"><span> <a href="/artist/vesna/?p=1">2</a> </span></td> 
+                  <td width="9.090909090909092%"><span> <a href="/artist/vesna/?p=2">3</a> </span></td> 
+                  <td width="9.090909090909092%"><span> <a href="/artist/vesna/?p=3">4</a> </span></td> 
+                  <td width="9.090909090909092%"><span style="color:black"> ... </span></td> 
+                  <td width="9.090909090909092%"><span> <a href="/artist/vesna/?p=5">6</a> </span></td> 
+                 </tr> 
+                </tbody>
+               </table> 
+               <table width="100%"> 
+                <tbody>
+                 <tr>
+                  <td>
+                   <div class="scroll_bar"> 
+                    <div class="scroll_trough"></div> 
+                   </div></td>
+                 </tr> 
+                </tbody>
+               </table> 
+              </div> </td>
+            </tr> 
+           </tbody>
+          </table> 
+         </div> 
+        </div> 
+        <script>
+$("#order_a").html("???????????? <img alt='' src='/images/shop_menu_active.gif'>");
+
+ 
+var id_without_href = "ord_pop";
+
+$("#"+id_without_href).attr("href", "#");
+</script> 
+        <script>
+
+
+var ar_playlist = [
+];
+var $all_tracks = $(".white_grace");
+$all_tracks.each( function(i) { 
+    $(this).addClass("white_grace_guest");
+    $(this).removeClass("white_grace");
+    if($(this).attr('longstring')) {
+        $(this).css("left", "431px");
+    }        
+ } );
+ var $all_artists = $(".second_column_track");
+ $all_artists.each(function(i) {
+     $(this).css("width", "163px");
+ });
+for(var i=0; i<ar_playlist.length; i++) {
+if($("#add"+ar_playlist[i])) {
+    $("#add"+ar_playlist[i]).removeClass("addtoplay").addClass("deleteplay");
+    $("#add"+ar_playlist[i]).attr("title", "??????? ?? ?????????");
+}
+}
+</script> 
+        <br /> 
+        <div id="vk_comments"></div> 
+        <div id="PC_Teaser_Block_39592" class="PC_TBlock">
+         ????????...
+        </div> 
+        <br /> 
+        <div id="content_artist_bottom"></div> 
+        <div id="content_artist_top_js" style="display:none;"> 
+        </div> 
+        <script>
+if(document.getElementById("content_artist_top") && document.getElementById("content_artist_top_js").innerHTML){
+    document.getElementById("content_artist_top").innerHTML = document.getElementById("content_artist_top_js").innerHTML;
+}
+</script> 
+        <div id="content_artist_bottom_js" style="display:none;"> 
+        </div> 
+        <script>
+if(document.getElementById("content_artist_bottom") && document.getElementById("content_artist_bottom_js").innerHTML){
+    document.getElementById("content_artist_bottom").innerHTML = document.getElementById("content_artist_bottom_js").innerHTML;
+}
+</script> 
+        <div id="content_artist_center_js" style="display:none;"> 
+        </div> 
+        <script>
+if(document.getElementById("content_artist_center") && document.getElementById("content_artist_center_js").innerHTML){
+    document.getElementById("content_artist_center").innerHTML = document.getElementById("content_artist_center_js").innerHTML;
+}
+</script> 
+        <script type="text/javascript">
+if(!_ua.match(/MSIE 7/i)){
+dcLoaded();
+}
+</script> 
+        <script type="text/javascript" src="/js/login.js?v=6"></script> 
+        <script src="/js/tabcontent.js?v=1" type="text/javascript"></script> 
+        <div class="clear"></div> 
+        <div id="overall_left_center"></div> 
+       </div> 
+       <div class="tags"></div> 
+      </div> 
+      <div class="post-bottom"></div> 
+     </div> 
+     <!-- ^^^^^^^^^^^^^^ post code ^^^^^^^^^^^^^^ --> 
+     <!-- ^^^^^^^^^^^^^^ post navigation ^^^^^^^^^^^^^^ --> 
+     <div class="navigation"> 
+      <div class="navleft"></div> 
+      <div class="navright"></div> 
+      <div class="clear"></div> 
+     </div> 
+     <!-- ^^^^^^^^^^^^^^ post navigation ^^^^^^^^^^^^^^ --> 
+    </div> 
+    <div id="sidebar"> 
+     <div id="overall_right_top"></div> 
+     <br /> 
+     <table cellpadding="0" cellspacing="0"> 
+      <tbody>
+       <tr>
+        <td style="vertical-align:middle" width="190"> <a target="_blank" class="mrc__plugin_uber_like_button" href="http://connect.mail.ru/share" data-mrc-config="{'type' : 'small', 'caption-mm' : '1', 'caption-ok' : '1', 'counter' : 'true', 'width' : '100%', 'nt' : '1'}">????????</a> </td> 
+        <td valign="middle" style="padding:0;vertical-align:middle" width="100"> 
+         <div id="vk_like"></div> </td> 
+        <td valign="middle" style="padding:0;padding-left:5px;vertical-align:middle"> 
+         <g:plusone size="medium"></g:plusone> </td>
+       </tr> 
+      </tbody>
+     </table> 
+     <!-- ^^^^^^^^^^^^^^ 125x125 px ads template ^^^^^^^^^^^^^^ --> 
+     <!-- ^^^^^^^^^^^^^^ code for advertisements ^^^^^^^^^^^^^^ --> 
+     <ul id="tabs_genre" class="tabs"> 
+      <li><a href="#" rel="tab_genre3" class="selected">????????????</a></li> 
+      <li><a href="#" rel="tab_genre1" class="">?????</a></li> 
+      <li><a href="#" rel="tab_genre2" class="">?????? ????????????</a></li> 
+     </ul> 
+     <div id="tab_genre3" class="tabcontent" style="display: block;"> 
+      <div class="station_pic" style="margin-left:8px;line-height: 0.5;position:relative; float:left;text-align:center">
+       <a href="/station/miliceiskaa-volna/"><img src="/images/stations/25.png" width="70px" title="??????????? ?????" /></a>
+       <div style="display:none;">
+        ????????????: 
+        <a href="/station/miliceiskaa-volna/">??????????? ?????</a>
+       </div>
+      </div> 
+      <div class="station_pic" style="margin-left:8px;line-height: 0.5;position:relative; float:left;text-align:center">
+       <a href="/station/avtoradio/"><img src="/images/stations/33.png" width="70px" title="?????????" /></a>
+       <div style="display:none;">
+        ????????????: 
+        <a href="/station/avtoradio/">?????????</a>
+       </div>
+      </div> 
+      <div class="station_pic" style="margin-left:8px;line-height: 0.5;position:relative; float:left;text-align:center">
+       <a href="/station/6anson/"><img src="/images/stations/18.png" width="70px" title="??????" /></a>
+       <div style="display:none;">
+        ????????????: 
+        <a href="/station/6anson/">??????</a>
+       </div>
+      </div> 
+      <div class="station_pic" style="margin-left:8px;line-height: 0.5;position:relative; float:left;text-align:center">
+       <a href="/station/radio-da4a/"><img src="/images/stations/5.png" width="70px" title="????? ????" /></a>
+       <div style="display:none;">
+        ????????????: 
+        <a href="/station/radio-da4a/">????? ????</a>
+       </div>
+      </div> 
+      <div class="station_pic" style="margin-left:8px;line-height: 0.5;position:relative; float:left;text-align:center">
+       <a href="/station/retro-fm/"><img src="/images/stations/12.png" width="70px" title="????? FM" /></a>
+       <div style="display:none;">
+        ????????????: 
+        <a href="/station/retro-fm/">????? FM</a>
+       </div>
+      </div> 
+      <div class="clear"></div> 
+      <div id="info_station" style="float:left;font-size:11px;margin-top:5px;color:#999"></div> 
+      <script type="text/javascript">
+  $(".station_pic").mouseover(function(){
+      $(this).css({ 'opacity': "1" });
+      $(this).prevAll(".station_pic").css({ 'opacity': "0.4" });
+      $(this).nextAll(".station_pic").css({ 'opacity': "0.4" });      
+      $("#info_station").html($(this).children("div").html());
+  });  
+</script> 
+      <br /> 
+      <a href="/stations/" style="float:right">[??? ????????????]</a> 
+     </div> 
+     <div style="display:none;" id="tab_genre1" class="tabcontent"> 
+      <a href="/genre/alternative/" class="medium_g">????????????</a> &nbsp; 
+      <a href="/genre/jazz/" class="small_g">????</a> &nbsp; 
+      <a href="/genre/instrumental/" class="small_g">????????????</a> &nbsp; 
+      <a href="/genre/classic-rock/" class="small_g">???????? ????</a> &nbsp; 
+      <a href="/genre/metal/" class="small_g">??????</a> &nbsp; 
+      <a href="/genre/punk/" class="smallest_g">????</a> &nbsp; 
+      <a href="/genre/pop/" class="largest_g">???</a> &nbsp; 
+      <a href="/genre/rock/" class="large_g">???</a> &nbsp; 
+      <a href="/genre/russian-pop/" class="medium_g">??????? ???</a> &nbsp; 
+      <a href="/genre/russian-rock/" class="medium_g">??????? ???</a> &nbsp; 
+      <a href="/genre/rap/" class="small_g">???</a> &nbsp; 
+      <a href="/genre/soundtrack/" class="smallest_g">??????????</a> &nbsp; 
+      <a href="/genre/dance/" class="large_g">????????????</a> &nbsp; 
+      <a href="/genre/folk/" class="smallest_g">????</a> &nbsp; 
+      <a href="/genre/hard-rock/" class="smallest_g">???? ???</a> &nbsp; 
+      <a href="/genre/hip-hop/" class="medium_g">???-???</a> &nbsp; 
+      <a href="/genre/heavy-metal/" class="smallest_g">???? ?????</a> &nbsp; 
+      <a href="/genre/chanson/" class="medium_g">??????</a> &nbsp; 
+      <a href="/genre/shanson/" class="smallest_g">??????</a> &nbsp; 
+      <a href="/genre/electronic/" class="large_g">???????????</a> &nbsp; 
+      <br /> 
+      <a href="/genres/" style="float:right">[??? ?????]</a> 
+     </div> 
+     <div style="display: none;" id="tab_genre2" class="tabcontent"> 
+      <div class="clear"></div> 
+     </div> 
+     <script type="text/javascript">
+var countries_genre=new ddtabcontent("tabs_genre")
+countries_genre.setpersist(false)
+countries_genre.setselectedClassTarget("link")
+countries_genre.init()
+</script> 
+     <div>
+      <table width="425px">
+       <tbody>
+        <tr>
+         <td valign="top" style="vertical-align:top;width:100%;padding-top:20px"> 
+          <!-- ^^^^^^^^^^^^^^ rss subscription code ^^^^^^^^^^^^^^ --> 
+          <div class="auth_panel" style="width:165px"> 
+           <div class="header_sidebar">
+            <div style="float:left;position:relative">
+             <img src="/images/header_min_left.gif" />
+            </div>
+            <div style="color:white;font-size:11px;font-weight:bold;position:relative;float:left;margin-top:10px;margin-left:10px;">
+             ???????????
+            </div>
+            <div style="float:right;position:relative">
+             <img src="/images/header_min_right.gif" />
+            </div>
+           </div> 
+           <ul> 
+            <!-- ^^^^^^^^^^^^^^ widgetize sidebar ^^^^^^^^^^^^^^ --> 
+            <li style="text-align:left;width:100%"> 
+             <div> 
+              <a class="dashed" onclick="$('#popup', window.parent.document).togglePopup('/', ' '); return false;" href="/login/">????? ?? ????</a> 
+              <br /> 
+              <a href="/signup/" onclick="javascript:window.parent.location='/signup/'">???????????</a> 
+              <br /> 
+              <span id="limit_tracks"></span> 
+              <script>
+if(tr_u_sm == 0) {
+var count_clicks_track = 0;
+var cook_limit = getCookie("sldkld");
+if(cook_limit>0) {
+    count_clicks_track = cook_limit;
+}
+var count_track_all_now = 50;
+$("#limit_tracks").html("????? "+count_clicks_track+"/"+count_track_all_now+" mp3 ? ????");
+}
+</script> 
+             </div> </li> 
+           </ul> 
+          </div>   </td>
+         <td style="padding-top:20px;"> 
+          <div id="overall_right_center"></div> </td> 
+        </tr> 
+       </tbody>
+      </table> 
+     </div> 
+     <!-- ^^^^^^^^^^^^^^ tabbed content ^^^^^^^^^^^^^^ --> 
+     <ul id="tabs" class="tabs"> 
+      <li><a href="#" rel="tab1" class="selected">??????? ???????????</a></li> 
+     </ul> 
+     <div style="display: block;" id="tab1" class="tabcontent"> 
+      <ul> 
+       <li> <a href="/artist/kata-lel_/" style="font-size:12px"> ???? ????</a></li> 
+       <li> <a href="/artist/komissar/" style="font-size:12px"> ????????</a></li> 
+       <li> <a href="/artist/detskie-pesni/" style="font-size:12px"> ??????? ?????</a></li> 
+       <li> <a href="/artist/nu6a/" style="font-size:12px"> ????</a></li> 
+       <li> <a href="/artist/adrenalin/" style="font-size:12px"> ?????????</a></li> 
+       <li> <a href="/artist/belii-orel/" style="font-size:12px"> ????? ????</a></li> 
+       <li> <a href="/artist/oleg-skobla/" style="font-size:12px"> ???? ??????</a></li> 
+       <li> <a href="/artist/irina-krug/" style="font-size:12px"> ????? ????</a></li> 
+       <li> <a href="/artist/linda/" style="font-size:12px"> ?????</a></li> 
+       <li> <a href="/artist/lolita/" style="font-size:12px"> ??????</a></li> 
+      </ul>
+      <table width="100%" cellpadding="0" class="best_track" id="musictable"> 
+       <tbody>
+        <tr>
+         <td colspan="2"></td>
+        </tr> 
+        <tr>
+         <td colspan="2"></td>
+        </tr>  
+       </tbody>
+      </table> 
+     </div> 
+     <div class="clear"></div> 
+     <div id="overall_right_bottom"></div> 
+     <!-- VK Widget --> 
+     <div style="height:120px;float:left"> 
+      <div id="vk_groups"></div> 
+     </div> 
+     <div class="clear"></div> 
+     <a href="http://twitter.com/audiopoisk_com" class="twitter-follow-button" data-show-count="false" data-lang="ru">?????? @audiopoisk_com</a> 
+     <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script> 
+    </div>
+    <!-- ^^^^^^^^^^^^^^ clear column and sidebar ^^^^^^^^^^^^^^ --> 
+    <div class="clear"></div> 
+   </div> 
+   <!-- ^^^^^^^^^^^^^^ end container :) // --> 
+  </div> 
+  <!-- ^^^^^^^^^^^^^^ footer code ^^^^^^^^^^^^^^ --> 
+  <div id="overall_foot_top"></div> 
+  <div id="footer"> 
+   <div id="footercontent"> 
+    <ul> 
+     <li><a href="/">Audiopoisk.com</a></li> 
+     <li class="page_item page-item-7"><a href="/feedback/" title="???????? ?????">???????? ?????</a></li> 
+     <li><a href="/agreements/" rel="nofollow">???????????????? ??????????</a></li> 
+     <li><a href="/law/" rel="nofollow">????????????????</a></li> 
+    </ul> 
+    <div class="copyright">
+     Copyright &copy;2009-2013 Audiopoisk.com
+    </div> 
+    <div class="clear"></div> 
+    <div class="property"></div> 
+   </div> 
+  </div> 
+  <!-- ^^^^^^^^^^^^^^ footer code ^^^^^^^^^^^^^^ --> 
+  <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?49"></script> 
+  <script type="text/javascript">
+  VK.init({apiId: 1914471, onlyWidgets: true});
+  VK.Widgets.Like("vk_like", {type: "mini"});
+  VK.Widgets.Comments("vk_comments", {limit: 5, width: "496", attach: "audio, video", norealtime: 1});
+    VK.Widgets.Group("vk_groups", {mode: 1, width: "415", height: "290"}, 38168115); 
+</script> 
+  <div id="overall_left_center_js" style="display:none;"> 
+   <script type="text/javascript" src="/js/share42/share42.js"></script> 
+   <script type="text/javascript">share42('/js/share42/','','',150,20)</script> 
+  </div> 
+  <script>
+if(document.getElementById("overall_left_center") && document.getElementById("overall_left_center_js").innerHTML){
+    document.getElementById("overall_left_center").innerHTML = document.getElementById("overall_left_center_js").innerHTML;
+}
+</script> 
+  <div id="content_artist_top_js" style="display:none;"> 
+  </div> 
+  <script>
+if(document.getElementById("content_artist_top") && document.getElementById("content_artist_top_js").innerHTML){
+    document.getElementById("content_artist_top").innerHTML = document.getElementById("content_artist_top_js").innerHTML;
+}
+</script> 
+  <div id="content_artist_center_js" style="display:none;"> 
+  </div> 
+  <script>
+if(document.getElementById("content_artist_center") && document.getElementById("content_artist_center_js").innerHTML){
+    document.getElementById("content_artist_center").innerHTML = document.getElementById("content_artist_center_js").innerHTML;
+}
+</script> 
+  <div id="content_artist_bottom_js" style="display:none;"> 
+  </div> 
+  <script>
+if(document.getElementById("content_artist_bottom") && document.getElementById("content_artist_bottom_js").innerHTML){
+    document.getElementById("content_artist_bottom").innerHTML = document.getElementById("content_artist_bottom_js").innerHTML;
+}
+</script> 
+  <div id="overall_head_bottom_js" style="display:none;"> 
+  </div> 
+  <script>
+if(document.getElementById("overall_head_bottom") && document.getElementById("overall_head_bottom_js").innerHTML){
+    document.getElementById("overall_head_bottom").innerHTML = document.getElementById("overall_head_bottom_js").innerHTML;
+}
+</script> 
+  <div id="overall_right_top_js" style="display:none;"> 
+  </div> 
+  <script>
+if(document.getElementById("overall_right_top") && document.getElementById("overall_right_top_js").innerHTML){
+    document.getElementById("overall_right_top").innerHTML = document.getElementById("overall_right_top_js").innerHTML;
+}
+</script> 
+  <div id="overall_right_center_js" style="display:none;float:left"> 
+   <!-- Soloway 240x400 code START--> 
+   <script language="javascript" type="text/javascript"><!--
+if(typeof(ar_cn)=="undefined") var ar_cn=1;
+var ar_Tail=document.referrer ? escape(document.referrer) : 'unknown';
+var ar_link="http://ad.adriver.ru/cgi-bin/erle.cgi?sid=181016&bt=49&target=blank&tail256=" + ar_Tail;
+document.write('<div style="visibility:hidden;height:0px;"><iframe id="ar_container_'+ar_cn+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div><div id="ad_ph_'+ar_cn+'"><\/div>');
+function ar_getDoc(t,n,l){var doc;if(t<100){if(document.all && !window.opera){doc = window.frames['ar_container_'+n].document}
+else if(document.getElementById){doc=document.getElementById('ar_container_'+n).contentDocument}
+if(!doc){setTimeout('ar_getDoc('+(++t)+','+n+',"'+l+'")', 100)}else {var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+doc.write ('<sc'+'ript language="JavaScript" type="text/javascript">var ar_bnum='+n+';<\/sc'+'ript>');
+doc.write ('<sc'+'ript language="JavaScript" type="text/javascript" src="'+l+'&rnd='+RndNum4NoCash+'"><\/sc'+'ript>');}}}
+(function(num,link){function addEvent(e,t,f){if(e.addEventListener)e.addEventListener(t,f,false);else if(e.attachEvent)e.attachEvent('on'+t,f)}
+function removeEvent(e,t,f){if(e.removeEventListener)e.removeEventListener(t,f,false);else if(e.detachEvent)e.detachEvent('on'+t,f)}
+var BannerLoader={top:0,height:400,cm:document.compatMode=="CSS1Compat",
+scroll:function(){var ch=self.innerHeight||this.cm&&document.documentElement.clientHeight||document.body.clientHeight;
+var st=self.pageYOffset||this.cm&&document.documentElement.scrollTop||document.body.scrollTop;
+var sh=self.scrollHeight||this.cm&&document.documentElement.scrollHeight||document.body.scrollHeight;
+if((st-this.top<=this.height*0.2&&st+ch-this.top>=this.height*0.8)||(sh-this.top<=this.height*0.8&&(sh-st-ch<1||sh<ch))){
+removeEvent(window,'scroll',this.sfunc);ar_getDoc(0,num,link)}},
+sfunc: function(){BannerLoader.scroll()},init:function(){var t=this,obj=document.getElementById('ad_ph_'+num);
+if(obj){while(obj.offsetParent){t.top += obj.offsetTop; obj = obj.offsetParent}
+addEvent(window,'scroll',this.sfunc);t.scroll()}}};addEvent(window, 'load', function(){BannerLoader.init()})})(ar_cn++,ar_link);
+//--></script> 
+   <!-- Soloway 240x400 code END --> 
+  </div> 
+  <script>
+if(document.getElementById("overall_right_center") && document.getElementById("overall_right_center_js").innerHTML){
+    document.getElementById("overall_right_center").innerHTML = document.getElementById("overall_right_center_js").innerHTML;
+}
+</script> 
+  <div id="overall_right_bottom_js" style="display:none;"> 
+   <!-- MComposite Start --> 
+   <div id="MarketGidComposite10335">
+    <center>
+     <a rel="nofollow" href="http://marketgid.com" target="_blank">????????...</a> 
+    </center>
+   </div> 
+   <!-- MComposite End --> 
+   <div class="reklama">
+    <a href="/payrobokassa/">?????? ???????</a>
+   </div> 
+   <br /> 
+  </div> 
+  <script>
+if(document.getElementById("overall_right_bottom") && document.getElementById("overall_right_bottom_js").innerHTML){
+    document.getElementById("overall_right_bottom").innerHTML = document.getElementById("overall_right_bottom_js").innerHTML;
+}
+</script> 
+  <div id="overall_head_top_js" style="display:none;"> 
+  </div> 
+  <script>
+if(document.getElementById("overall_head_top") && document.getElementById("overall_head_top_js").innerHTML){
+    document.getElementById("overall_head_top").innerHTML = document.getElementById("overall_head_top_js").innerHTML;
+}
+</script> 
+  <div id="overall_foot_top_js" style="display:none;"> 
+  </div> 
+  <script>
+if(document.getElementById("overall_foot_top") && document.getElementById("overall_foot_top_js").innerHTML){
+    document.getElementById("overall_foot_top").innerHTML = document.getElementById("overall_foot_top_js").innerHTML;
+}
+</script> 
+  <div id="overall_foot_bottom"> 
+   <!-- Yandex.Metrika counter -->
+   <div style="display:none;">
+    <script type="text/javascript">(function(w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter9422815 = new Ya.Metrika({id:9422815, enableAll: true, webvisor:true}); } catch(e) { } }); })(window, "yandex_metrika_callbacks");</script>
+   </div>
+   <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+   <noscript>
+    <div>
+     <img src="//mc.yandex.ru/watch/9422815" style="position:absolute; left:-9999px;" alt="" />
+    </div>
+   </noscript>
+   <!-- /Yandex.Metrika counter --> 
+   <!--LiveInternet counter-->
+   <script type="text/javascript"><!--
+document.write("<img src='http://counter.yadro.ru/hit?t25.2;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: ???????? ????? ??????????? ??"+
+" ???????' "+
+"border=0 width=1 height=1>")//--></script>
+   <!--/LiveInternet--> 
+   <!-- Soc buttons code --> 
+   <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'ru', parsetags: 'explicit'}
+</script> 
+   <script type="text/javascript">gapi.plusone.go();</script> 
+   <script src="http://cdn.connect.mail.ru/js/loader.js" type="text/javascript" charset="UTF-8"></script> 
+  </div> 
+  <!-- Soloway Javascript code START--> 
+  <script language="javascript" type="text/javascript"><!--
+var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+var ar_Tail='unknown'; if (document.referrer) ar_Tail = escape(document.referrer);
+document.write('<sc' + 'ript language="JavaScript" src="http://ad.adriver.ru/cgi-bin/erle.cgi?sid=181016&bt=16&target=blank&rnd=' + RndNum4NoCash + '&tail256=' + ar_Tail + '"></sc' + 'ript>');
+//--></script> 
+  <!-- Soloway Javascript code END --> 
+  <script type="text/javascript">var PC_CId = 39592;</script> 
+  <script type="text/javascript" src="http://st.pc.adonweb.ru/js/adv_out.js"></script> 
+  <script type="text/javascript"><!--
+reformal_wdg_domain    = "audiopoisk";
+reformal_wdg_mode    = 0;
+reformal_wdg_title   = "audiopoisk - mp3 ??????";
+reformal_wdg_ltitle  = "???????? ???? ?????";
+reformal_wdg_lfont   = "";
+reformal_wdg_lsize   = "";
+reformal_wdg_color   = "#a0d119";
+reformal_wdg_bcolor  = "#516683";
+reformal_wdg_tcolor  = "#FFFFFF";
+reformal_wdg_align   = "right";
+reformal_wdg_charset = "windows-1251";
+reformal_wdg_waction = 0;
+reformal_wdg_vcolor  = "#9FCE54";
+reformal_wdg_cmline  = "#E0E0E0";
+reformal_wdg_glcolor  = "#105895";
+reformal_wdg_tbcolor  = "#FFFFFF";
+ 
+reformal_wdg_bimage = "7688f5685f7701e97daa5497d3d9c745.png";
+ //-->
+</script> 
+  <script type="text/javascript" language="JavaScript" src="/js/tab6.js"></script>
+  <noscript>
+   <a href="http://audiopoisk.reformal.ru">audiopoisk - mp3 ?????? feedback </a> 
+   <a href="http://reformal.ru"><img src="http://reformal.ru/i/logo.gif" /></a>
+  </noscript> 
+  <script type="text/javascript">
+var MGCD = new Date();
+document.write('<scr'
++'ipt type="text/javascript"'
++' src="http://jsc.dt00.net/a/u/audiopoisk.com.10335.js?t='
++MGCD.getYear()
++MGCD.getMonth()
++MGCD.getDay()
++MGCD.getHours()
++'" charset="windows-1251"></scr'+'ipt>');
+</script>  
+  <script src="http://ulogin.ru/js/ulogin.js" type="text/javascript"></script> 
+  <script>                                    
+    var stopWatchScroll = 0;             
+        
+    $(window).scroll(function(){   
+        if($("#sidebar").height()<$(".content").height()) {
+
+        if (stopWatchScroll == 0 && $(window).scrollTop()+$(window).height() > $("#sidebar").height()){     
+                                            
+            stopWatchScroll = 1;
+            var left = $("#sidebar").offset().left;            
+            $("#sidebar").css("position", "fixed");
+            $("#sidebar").css("left", left);            
+        }
+        if(stopWatchScroll == 1) {
+            $("#sidebar").css("top", -($("#sidebar").height()-$(window).height()));            
+            if($(window).scrollTop()+$(window).height()>$("#footer").offset().top) {
+                stopWatchScroll = 2;                   
+            }
+        }
+        if(stopWatchScroll == 2) {           
+            $("#sidebar").css("top", -($("#sidebar").height()-$("#footer").offset().top+$(window).scrollTop()));          
+            if($(window).scrollTop()+$(window).height()<$("#footer").offset().top) {    
+                stopWatchScroll = 1;
+                $("#sidebar").css("top", -($("#sidebar").height()-$(window).height()));                
+            }    
+        }           
+        if(stopWatchScroll != 0 && $(window).scrollTop()+$(window).height() < $("#sidebar").height()){
+            stopWatchScroll = 0;
+            $("#sidebar").css("position", "relative"); 
+            $("#sidebar").css("left", "0px");  
+            $("#sidebar").css("top", "0px");                
+        }}
+    } );
+if(_ua.match(/MSIE 7/i)){
+dcLoaded();
+}
+</script> 
+ </body>
+</html>

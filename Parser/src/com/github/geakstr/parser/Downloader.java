@@ -33,14 +33,17 @@ public class Downloader<T extends IDoc> {
 	public void putDocumentToFile(T doc, String dir) throws IOException,
 			NoSuchAlgorithmException {
 
+		File dirFile = new File(dir);
+		if (!dirFile.exists())
+			dirFile.mkdir();
+
 		String link = doc.getLink();
 
 		String fileName = dir + sha1(link) + ".html";
 
 		File f = new File(fileName);
 		if (f.exists()) {
-			System.out.println("Файл " + fileName + " уже существует");
-			return;
+			f.delete();
 		}
 
 		try {
@@ -56,7 +59,6 @@ public class Downloader<T extends IDoc> {
 			getDoc = getDocument(link);
 		} catch (Exception e) {
 			System.out.println("Не могу выкачать документ по адресу " + link);
-			System.out.println(e.getMessage());
 			System.out.println();
 			return;
 		}
